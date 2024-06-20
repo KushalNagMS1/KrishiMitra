@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # KrishiMitra---Crop-Finder
 KrishiMitra - Crop Finder Management System 
 
@@ -75,16 +75,11 @@ Short description or tagline of the project.
 
 Contributors:  
     NamishM7 -- https://github.com/NamishM7,  
-<<<<<<< HEAD
-    KushalNagMS -- https://github.com/KushalNagMS
-=======
     Lakshmish -- https://github.com/Lakshmish0
->>>>>>> 280de27a4bd832939adb7c1abf3bafb93bc8c4cb
-
+=======
 
 ## License
 
 - This project is licensed under the MIT License - see the LICENSE.md file for details.
 =======
-# Krishi_Mitra
->>>>>>> 6d59e627520211e5728b795bd4b1a47190612111
+
