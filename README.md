@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # KrishiMitra---Crop-Finder
 KrishiMitra - Crop Finder Management System 
 
@@ -80,3 +81,6 @@ Contributors:
 ## License
 
 - This project is licensed under the MIT License - see the LICENSE.md file for details.
+=======
+# Krishi_Mitra
+>>>>>>> 6d59e627520211e5728b795bd4b1a47190612111
