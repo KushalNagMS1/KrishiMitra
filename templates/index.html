@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiMitra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='home/styles.css') }}">
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <header>
+        {% include 'navbar.html'%}
+    </header>
+    <section class="parallax">
+        <img src="{{ url_for ('static',filename='home/hill1.png') }}" id="hill1" input type=file>
+        <img src="{{ url_for ('static',filename='home/hill2.png') }}" id="hill2">
+        <img src="{{ url_for ('static',filename='home/hill3.png') }}" id="hill3">
+        <img src="{{ url_for ('static',filename='home/hill4.png') }}" id="hill4">
+        <img src="{{ url_for ('static',filename='home/hill5.png') }}" id="hill5">
+        <img src="{{ url_for ('static',filename='home/tree.png') }}" id="tree">
+        <img src="{{ url_for ('static',filename='home/leaf.png') }}" id="leaf">
+        <h2 id="text">KrishiMitra</h2>
+        <img src="{{ url_for ('static',filename='home/plant.png') }}" id="plant">
+    </section>
+
+    <section class="sec">
+        <br><br>
+        <p style="font-size: 1.3rem;">
+            "Krishimitra" is your gateway to the world of farming. Whether you're a budding farmer or simply curious
+            about agriculture, this website is designed to be your companion on your farming journey. We understand that
+            starting out in farming can be daunting, which is why we've curated a wealth of information to help you take
+            those first steps with confidence.<br><br>
+
+            Explore different regions and their unique characteristics, from the rich, loamy soils of the Midwest to the
+            arid landscapes of the Southwest. Discover the crops best suited to each region, learn about their
+            cultivation requirements, and get insights into the challenges faced by farmers in these areas.<br><br>
+
+            With "Krishimitra," you'll not only gain valuable knowledge about farming practices but also develop a
+            deeper understanding of the intricate relationship between soil, climate, and crops. Let us guide you as you
+            embark on your farming journey, and together, we'll sow the seeds of success. <br><br>
+
+        </p>
+    </section>
+    <!-- <footer>
+        {% include 'footer.html'%}
+    </footer> -->
+    <script src="{{ url_for ('static',filename='home/script.js') }}"></script>
+</body>
+
+</html>

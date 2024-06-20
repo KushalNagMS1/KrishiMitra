@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='contact/contact.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='navbar.css') }}">
+</head>
+<body>
+    <header>
+        {% include 'navbar.html'%}
+    </header>
+
+    <div>
+        
+       
+        <div class="container">
+            
+            <div style="background-color: aliceblue; width: 40vw; margin: 2px; padding-top: 1px; padding-left: 20px; opacity: 0.9; border-radius: 20px;"> 
+                <h1>Connect with us</h1>
+                <p>We would love to respond to your queries and help you succeed.<br> Feel free to get in touch with us.</p>
+            </div>
+    
+            <div class="contact-box" style="opacity:0.9">
+                <div class="contact-left">
+                    <h3>Send your request</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Name</label>
+                                <input type="text" name="name" class="contact-inputs" required placeholder="Type your name">
+                            </div>
+                            <div class="input-group">
+                                <label>Phone</label>
+                                <input type="text" placeholder="Type your phone no.">
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Email</label>
+                                <input type="email" name="email" class="contact-inputs" required placeholder="Type your email id">
+                            </div>
+                            <div class="input-group">
+                                <label>Subject</label>
+                                <input type="text" placeholder="Subject of Request">
+                            </div>
+                        </div>
+                        
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Your message" class="contact-inputs" required></textarea>
+                        <input type="hidden" name="access_key" value="516d3797-e93b-4186-a520-8cb7945fc115">
+                        <button class="submit">SEND <img src="{{ url_for ('static',filename='contact/arrow_icon.png') }}"></button>
+                    </form>
+                </div>
+                <div class="contact-right">
+                    <img src="{{ url_for ('static',filename='contact/right_img.png') }}">
+                    <h3>Reach us</h3>
+                    <table>
+                        <tr>
+                            <td>Email</td>
+                            <td>contactus@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>+91 3843472487</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>5th Sem, AIML,<br> RNSIT,<br> Bengaluru</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer>
+            {% include 'footer.html'%}
+        </footer>
+    </div>
+    
+</html>

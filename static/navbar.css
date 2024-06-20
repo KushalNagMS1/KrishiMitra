@@ -1,0 +1,37 @@
+header{
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 2em;
+    color: #359381;
+    pointer-events: fill;
+    margin-right: 300px;
+}
+
+.navigation a{
+    text-decoration: none;
+    color:#359381;
+    padding: 6px 15px;
+    border-radius: 20px;
+    /* margin: 0 10px; */
+    margin: 0 20px;
+    font-weight: 600;
+}
+.navigation a.active:hover{
+    background-color: #fff;
+    color:  #359381;
+} 
+.navigation a.active{
+    background: #359381;
+    color: #fff;
+
+}

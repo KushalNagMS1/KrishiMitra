@@ -1,0 +1,6 @@
+<a @click="currentSection = 'index'" href="{{url_for ('index')}}" class="logo">KrishiMitra</a>
+<nav class="navigation">
+    <a @click="currentSection = 'contact'" href="{{url_for ('contact')}}" class="active">Contact Us</a>
+    <a @click="currentSection = 'login'" href="{{url_for ('login')}}" class="active">Login</a>
+    <a @click="currentSection = 'sign_up'" href="{{url_for ('signup')}}" class="active">Sign Up</a>
+</nav>

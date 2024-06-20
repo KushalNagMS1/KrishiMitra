@@ -1,0 +1,280 @@
+html {
+    background-color: #F2F2F2;
+}
+
+div.head {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+img {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}
+
+.head>div {
+    position: absolute;
+    padding-top: 20px;
+    width: 440px;
+    height: 100px;
+    background-color: white;
+    margin-top: 42vh;
+    margin-left: 530px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    opacity: 0.7;
+
+}
+
+.head>div>h1 {
+    font-weight: 700;
+    color: black;
+    font-size: 3rem;
+}
+
+.soil_inf {
+    height: 300px;
+    width: 100%;
+    margin-top: 50px;
+
+    height: 100vh;
+    width: 100%;
+
+}
+
+.left_cont {
+    height: 300px;
+    width: 50%;
+
+}
+
+.left_cont {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    margin-left: 20px;
+}
+
+.left_cont>p {
+    margin-right: 80px;
+}
+
+.soil_qts {
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.qts_frame {
+    padding-top: 10px;
+
+    width: 300px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-left: 20px;
+
+}
+
+#qts_img {
+    height: 250px;
+    width: 250px;
+
+}
+
+.soil_type {
+    border-radius: 15px;
+    width: 100%;
+    height: 90vh;
+    background-color: #F2E2CF;
+    margin-top: 50px;
+    position: relative;
+
+
+}
+
+.soil_type>h1 {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+
+
+li {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+}
+
+#soil_type_img {
+    height: 350px;
+    width: 350px;
+
+}
+
+.stick_right {
+    position: absolute;
+    /* Set the div to absolute position */
+    /* Align it to the top of the container */
+    right: 0;
+    width: 350px;
+    height: 500px;
+}
+
+span {
+    color: #A87185;
+}
+
+.flx {
+    display: flex;
+    justify-content: flex-end
+}
+
+/* ---- */
+.soil_selection {
+    height: 100vh;
+    background-color: #B19470;
+}
+
+#one {
+
+    height: 49vh;
+    background-color: #E8C872;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+
+}
+
+.d {
+    background-color: #FFF3CF;
+    height: 90vh;
+    margin-top: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 7px;
+
+}
+
+#two {
+
+    height: 49vh;
+    margin-top: 15px;
+    background-color: #E8C872;
+    border-radius: 7px;
+}
+
+.soil_info {
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+}
+
+.soil_info>div {
+    width: 580px;
+    background-color: #C9D7DD;
+    height: 110px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.wrapper {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    margin-left: 40px;
+    justify-content: left;
+    align-items: center;
+}
+
+.wrapper1 {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    margin-left: 80px;
+    justify-content: left;
+    align-items: center;
+}
+
+.image {
+    width: 50px;
+    position: relative;
+}
+
+.content {
+    width: 350px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.content:hover {
+    opacity: 1;
+}
+
+.content h1 {
+    font-size: 24px;
+    color: #ffe100;
+    margin-bottom: 15px;
+}
+
+.content p {
+    font-size: 15px;
+    color: #fff;
+}
+
+.content>* {
+    transform: translateY(25px);
+    transition: transform(0.6s);
+}
+
+.content:hover {
+    transform: translateY(0px);
+
+}
+
+.soil_advnt {
+    display: flex;
+    height: 45vh;
+    border-radius: 7px;
+    justify-content: space-evenly;
+}
+
+.advnt {
+    width: 500px;
+    background-color: #FFF3CF;
+    height: 320px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+
+}
+
+.quotes {
+    background-color: #FFF3CF;
+    height: 340px;
+    width: 600px;
+    margin-left: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+}

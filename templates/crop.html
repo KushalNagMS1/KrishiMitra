@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='dashboard/sidebars.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='crop/crop.css') }}">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="background-color: #C6DCBA;">
+    <header>
+        {% include 'sidebar.html'%}
+    </header>
+    <div class="container_head">
+        <img src="{{ url_for ('static',filename='crop/crop.gif') }}" alt="">
+        <div class="txt">
+            <h1>
+                Crop
+            </h1>
+        </div>
+    </div>
+
+    <div class="crop_name">
+        <h1 style="color: #05562F; padding-top: 10px; font-weight: bold; text-decoration: underline;">{{ crop }}</h1>
+    </div>
+
+    <div class="inf_container"></div>
+    <div style="display: grid;">
+        <div style="display: flex; height: 450px; width: 100vw;">
+            <div class="item">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Properties</h1>
+                <img style="width: 300px; margin-right: 20px;margin-left: 20px; border-radius: 20px;"
+                    src="{{ url_for ('static',filename='crop/1a.jpg') }}" alt="">
+                <p style="font-size: 1.5rem; margin-right: 20px; margin-left: 20px;">
+                    {% for row in crop_pro %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Yield Type :</l> {{ row[1] }}</td><br>
+                        <td><l style="font-weight: bold;">Harversting Month :</l> {{ row[2] }}</td><br>
+                        <td><l style="font-weight: bold;">Life Span :</l> {{ row[3] }}</td><br>
+                        <td><l style="font-weight: bold;">Water Requirement :</l> {{ row[4] }}</td><br>
+                        <td><l style="font-weight: bold;">Irrigation Type :</l> {{ row[5] }}</td><br>
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="item-left-left">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Diseases</h1>
+                <img style="width: 300px; margin-right: 20px;margin-left: 20px; border-radius: 20px;" id="left"
+                    src="{{ url_for ('static',filename='crop/2a.jpg') }}" alt="">
+                <p style="font-size: 1.5rem; margin-left: 20px;">
+                    {% for row in crop_dis %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Diseases :</l> {{ row[1] }}</td><br>
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <div style="display: flex; height: 450px; width: 100vw;">
+            <div class="item">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Economics</h1>
+                <img style="width: 300px; margin-right: 20px; border-radius: 20px;"
+                    src="{{ url_for ('static',filename='crop/3a.jpg') }}" alt="">
+                <p style="font-size: 1.5rem; margin-left: 20px;">
+                    {% for row in crop_eco %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Yield per unit area :</l> {{ row[1] }}</td><br>
+                        <td><l style="font-weight: bold;">Cultivation cost per unit area :</l> {{ row[2] }}</td><br>
+                        <td><l style="font-weight: bold;">Avgerage Market value per unit area :</l> {{ row[3] }}</td><br>
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="item-left-left">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Pest</h1>
+                <img style="width: 300px; margin-right: 20px;margin-left: 20px; border-radius: 20px;" id="left"
+                    src="{{ url_for ('static',filename='crop/4a.jpeg') }}" alt="">
+                <p style="font-size: 1.5rem;margin-left: 20px;">
+                    {% for row in crop_pes %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Pests : </l>{{ row[0] }}</td><br>
+                        
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <div style="display: flex; height: 450px; width: 100vw;">
+            <div class="item">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Disease Treatment</h1>
+                <img style="width: 300px; margin-right: 20px;margin-left: 20px; border-radius: 20px;"
+                    src="{{ url_for ('static',filename='crop/5a.jpg') }}" alt="">
+                <p style="font-size: 1.5rem; margin-right: 20px; margin-left: 20px;">
+                    {% for row in crop_med %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Medicine :</l> {{ row }}</td>
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="item-left-left">
+                <h1 style="margin-left: 20px;margin-top: 15px;">Pesticides</h1>
+                <img style="width: 300px; margin-right: 20px;margin-left: 20px; border-radius: 20px;" id="left"
+                    src="{{ url_for ('static',filename='crop/6a.jpg') }}" alt="">
+                <p style="font-size: 1.5rem; margin-left: 20px;">
+                    {% for row in crop_pes %}
+                    <tr>
+                        <td><l style="font-weight: bold;">Pesticides :</l> {{ row[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="flx">
+        <p> </p>
+        <p> </p>
+        <br>
+
+        <a class="btn btn-primary" style="font-size: 1.5rem; margin-bottom: 20px;"
+            href="{{ url_for('report') }} ">Finish
+        </a>
+        <br>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='dashboard/sidebars.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='soil/soil.css') }}">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body bgcolor="#B19470">
+    <header>
+        {% include 'sidebar.html'%}
+    </header>
+    <div class="head">
+        <img src="{{ url_for ('static',filename='soil/soil1.gif') }}" alt="">
+        <div style="opacity: 0.6;">
+            <h1>
+                SOIL
+            </h1>
+        </div>
+    </div>
+    <!-- Soil Selection -->
+    <div class="soil_selection">
+        <div id="one">
+            <div style="height: 35vh;" class="d soil_image">
+                <div class="wrapper">
+                    <div class="image">
+                        <img style="width: 350px; height: 200px; display: block; border-radius: 20px; "
+                            src="{{ url_for ('static',filename='soil/1.jpg') }}" alt="">
+                        <div class="content">
+                            <h1>
+                                Soil
+                            </h1>
+                            <p>The foundation for abundant harvests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 35vh;" class="d soil_info">
+                <div class="info">
+                    <h1 style="text-align: center;font-size: 1.5 rem;  margin-top: 25px;">Region : 
+                        <tr>
+                            <td>{{ region_data }}</td>
+                        </tr>
+                    </h1>
+                </div>
+                <div class="info">
+                    <h2 style="text-align: center;font-size: 1 rem; margin-top: 20px;">Soil: 
+                        <tr>
+                            <td>{{ soil_data }}</td>
+                        </tr>
+                    </h2>
+                </div>
+                <!-- <div class="info" style="margin-bottom: 5px;"><button aria-placeholder="Select"></button></div> -->
+            </div>
+            <div style="height: 35vh;" class="d choose_month">
+                <div>
+                    <h1 style="text-align: center; margin-top: 5px;">Choose Sowing Month</h1>
+                    <select id="monthSelect" style="height: 25px;width: 250px;margin-left: 25%;margin-top: 30px;">
+                        Select Month
+                        <option value="null">Select the sowing month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div>
+                    <br>
+                    <button id="gotoCropSearchBtn" class="btn btn-primary" style="margin-left: 33%;">Goto Crop
+                        Search</button>
+
+                    <script>
+                        document.getElementById("gotoCropSearchBtn").addEventListener("click", function () {
+                            var selectedMonth = document.getElementById("monthSelect").value;
+                            if (!selectedMonth || selectedMonth === 'null') {
+                                alert("Please select a month.");
+                                return false; // Prevent default behavior if month is not selected
+                            }
+                            else {
+                                window.location.href = "{{ url_for('crop_search') }}";
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div id="two">
+            <div class="soil_advnt">
+                <div style="padding-left: 50px;padding-left: 10px; font-size: 1.2rem;" class="advnt">
+                    <p style="padding-left: 15px;">
+                    <h2 style="text-align: center; text-decoration: underline;">Details</h2><br>
+                    <yy style="font-weight: bold">Cost per unit area:</yy> ₹ {% for cost in cost_data %} {{ cost }}
+                    {% endfor %} <br> <br>
+                    <ab style="font-weight: bold">Water Source:</ab> {% for water in water_data %} {{ water }} {%
+                    endfor %}, {% for water in water %} {{ water }} {% endfor %} <br><br>
+                    <ab style="font-weight: bold">Soil Water Holding Capacity:</ab> {% for wate in water_cap %} {{
+                    wate }} {% endfor %}<br><br>
+                    <cd style="font-weight: bold">Nutrients:</cd> {% for soil in soil1 %} {{ soil }} {% endfor %},
+                    {% for soil in soil2 %} {{ soil }} {% endfor %}, {% for soil in soil3 %} {{ soil }} {% endfor %}
+                    <br><br>
+                    </p>
+                </div>
+                <div class="quotes">
+                    <div class="wrapper1">
+                        <div class="image">
+                            <img style="width: 450px; height: 300px; display: block; border-radius: 20px;"
+                                src="{{ url_for ('static',filename='soil/'+ soil_data +'.jpg') }}" alt="">
+                            <div style="width: 450px; 
+                            height: 300px;" class="content">
+                                <h1>
+                                    {{ soil_data }}
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#monthSelect').change(function () {
+                var selectedMonth = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/store_month",
+                    data: { month: selectedMonth },
+                    success: function (response) {
+                        console.log(response);
+                        // Handle success message or other actions if needed
+                    },
+                    error: function (error) {
+                        console.error("Error:", error);
+                        // Handle error message or other actions if needed
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

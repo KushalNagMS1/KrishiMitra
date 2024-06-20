@@ -1,0 +1,13 @@
+body{
+    background-size: cover;
+    background-image: url('user.gif');
+}
+
+.main{
+    color: white;
+    display: grid; 
+    justify-content: center;
+    font-size: 1.5rem;
+    
+}
+

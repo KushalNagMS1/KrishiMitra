@@ -1,0 +1,13 @@
+<h2 class="logo">KrishiMitra</h2>
+<nav class="navigation">
+    <a @click="currentSection = 'log out'"  onclick="logout()" class="active">Log Out</a>
+</nav>
+<script>
+  function logout() {
+    // Perform logout actions here, such as redirecting to a logout URL or clearing session data
+    // For example, if using session storage:
+    sessionStorage.clear();
+    // Redirect to logout page
+    window.location.href = "/logout"; // Redirect to your logout route
+  }
+</script>

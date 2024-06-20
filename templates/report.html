@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='dashboard/sidebars.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='report/report.css') }}">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <img src="{{ url_for ('static',filename='report/report.gif') }} "
+        style="height: 100vh; width: 100vw; position: fixed;">
+    <header>
+        {% include 'sidebar.html'%}
+    </header>
+    <br>
+    <br>
+
+    <div class="full_page">
+
+        <div class="table_container" style="position: absolute;">
+            <div>
+                <div class="table" style="margin-top: 80px;">
+                    <table style="background-color: aliceblue; border-radius: 20px;">
+                        <thead>
+                            <h1>
+                                <tr>
+                                    <h1>
+                                        <th>Username</th>
+                                    </h1>
+                                    <th style="text-align: center;">Record Name</th>
+                                    <th style="text-align: center;">Region</th>
+                                    <th style="text-align: center;">Soil</th>
+                                    <th style="text-align: center;">Sowing Month</th>
+                                    <th style="text-align: center;">Crop</th>
+                                    <th style="text-align: center;">Actions</th>
+                                    <!-- Add more column headings if needed -->
+                                </tr>
+                            </h1>
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                            <tr id="row_{{ loop.index }}">
+                                <td>{{ row[1] }}</td>
+                                <td>{{ row[2] }}</td>
+                                <td>{{ row[3] }}</td>
+                                <td>{{ row[4] }}</td>
+                                <td>{{ row[5] }}</td>
+                                <td>{{ row[6] }}</td>
+                                <!-- Add more columns as per your database schema -->
+                                <td style="display: flex;">
+                                    <form action="/update_record" method="post" style="display: grid; justify-content: center;">
+                                        <input style="width: 200px; margin-top: 0; margin-bottom: 5px;" type="text" name="new_name" placeholder="Enter New Name" required>
+                                        <input type="hidden" name="record_id" value="{{ row[0] }}">
+                                        <button class="update" type="submit">Update Record Name</button>
+                                    </form>
+                                    <form action="/delete_record" method="post">
+                                        <input type="hidden" name="delete_id" value="{{ row[0] }}">
+                                        <button class="delete" type="submit">Delete</button>
+                                    </form>
+                                    <button class="download" value="{{ row[0] }}" onclick="downloadPDF(this)">Download</button>
+                                </td>
+                                <!-- Assuming row[0] contains the ID of the row -->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <br>
+                <br>
+                <div style="display: flex; justify-content: center;">
+                    <a class="btn btn-primary" href="{{ url_for('dashboard') }} ">Go to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function downloadPDF(button) {
+        var selectedSession = $(button).val();
+        window.open("/download_pdf?session_id=" + selectedSession, "_blank");
+    }
+</script>
+
+
+</html>
+
+</body>
+
+</html>

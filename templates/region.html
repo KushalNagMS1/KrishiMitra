@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Region</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='dashboard/sidebars.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='region/region.css') }}">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* Add your custom CSS styles here */
+        .rgn_item {
+            cursor: pointer;
+            /* Set cursor to pointer for selection effect */
+        }
+
+        .rgn_item.selected {
+            background-color: lightblue;
+            /* Change background color for selected item */
+        }
+    </style>
+</head>
+
+<body style="background-color:#9bcf53;">
+    <header>
+        {% include 'sidebar.html'%}
+    </header>
+    <!-- header -->
+    <div class="container_head">
+        <img style="width: 100%;
+        height: 100vh;" src="{{ url_for ('static',filename='region/region1.jpg') }}" alt="">
+        <div class="txt">
+            <h1>
+                Region
+            </h1>
+        </div>
+    </div>
+    <!-- ---------- -->
+    <div style="height: 10px;"></div>
+    <h1 style="text-align: center;font-size: 2.5rem;background-color: #9bcf53;">REGION</h1>
+    <h2 style="text-align: center;font-size: 1.5rem;">Please choose a region</h2>
+
+
+    <div class="rgn_container">
+        {% for region in regions %}
+        <div class="rgn_item" onclick="selectRegion('{{ region }}')">
+            <div style="height: 15px;">
+                <h1 style="text-align:center;padding: 15px;">{{ region }}</h1>
+            </div>
+            <div class="wwrapper">
+                <div style="margin-left: 10px;">
+                    <img style="height: 250px;width: 300px; border-radius: 20px;"
+                        src="{{ url_for('static', filename='region/'+ region +'.jpg') }}" alt="{{ region }}">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <div style="display: flex; justify-content: center;" >
+        <h1 style="font-size: 2rem;">
+            <button id="gotoSoilBtn" class="btn btn-primary">Goto Soil</button>
+        </h1>
+    </div>
+
+    <script>
+        document.getElementById("gotoSoilBtn").addEventListener("click", function () {
+            var selectedRegion = document.querySelector(".rgn_item.selected");
+            if (selectedRegion) {
+                window.location.href = "{{ url_for('soil') }}";
+            } else {
+                alert("Please select a region.");
+            }
+        });
+    </script>
+
+
+
+    <!-- --------- -->
+
+    <!-- <div style="text-align: center; height: 20px;">
+        <h1 style="color: black;font-weight: 700;text-align: center;font-size: 2.5rem;background-color: #B5C0D0;">ADVANTAGES</h1>
+    </div> -->
+
+    <!-- ADVANTAGES -->
+    <!-- <div class="advt_container">
+        <div class="advt_item" style="padding-top: 10px;">
+            <h1 style="text-align: center;">
+                Harvesting Rewards
+            </h1>
+            <div class="wrapper">
+                <div class="image">
+                    <img style="width: 350px; height: 250px; display: block; border-radius: 20px;"
+                        src="{{ url_for('static', filename='region/harvesting.jpg') }}" alt="">
+                    <div class="content">
+                        <h1>
+                            Harvesting Rewards
+                        </h1>
+                        <p>Reaping the fruits of hard work and nurturing fields. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advt_item" style="padding-top: 10px;">
+            <h1 style="text-align: center;">
+                Sow Your Own Harvest
+            </h1>
+            <div class="wrapper">
+                <div class="image">
+                    <img style="width: 350px; height: 250px; display: block; border-radius: 20px;"
+                        src="{{ url_for('static', filename='region/sowing.jpg') }}" alt="">
+                    <div class="content">
+                        <h1>
+                            Sow Your Own Harvest
+                        </h1>
+                        <p> Cultivate success by nurturing your seeds. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advt_item" style="padding-top: 10px;">
+            <h1 style="text-align: center;">
+                Nourish Your Family
+            </h1>
+            <div class="wrapper">
+                <div class="image">
+                    <img style="width: 350px; height: 250px; display: block; border-radius: 20px;"
+                        src="{{ url_for('static', filename='region/nourishment.jpg') }}" alt="">
+                    <div class="content">
+                        <h1>
+                            Nourish Your Family
+                        </h1>
+                        <p>Grow, harvest, and provide for a thriving home. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> -->
+
+
+    <!-- Choose your region -->
+
+
+
+    <script>
+        function selectRegion(regionName) {
+            if (regionName.trim() !== "") {
+                // Remove selected class from all rgn_item elements
+                var rgnItems = document.getElementsByClassName('rgn_item');
+                for (var i = 0; i < rgnItems.length; i++) {
+                    rgnItems[i].classList.remove('selected');
+                }
+                // Add selected class to the clicked rgn_item element
+                event.currentTarget.classList.add('selected');
+
+                // Send AJAX request to backend to fetch selected region value
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(xhr.responseText); // Handle the response from backend
+                    }
+                };
+                xhr.open("GET", "/get_region?regionName=" + regionName, true);
+                xhr.send();
+            } else {
+                alert("Please select a region.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

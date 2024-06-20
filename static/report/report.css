@@ -1,0 +1,66 @@
+.full_page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.table_container {
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    right: 50px;
+    height: 600px;
+    background-color: grey;
+    opacity: 0.7;
+    /* Adjust opacity as needed */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    margin-left: 30px;
+    width: 70px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.delete{
+    background-color: red;
+    color: white;
+}
+
+.download{
+    width: 100px;
+    background-color: blue;
+    color: white;
+}
+
+.update{
+    margin-left: 0;
+    width: 200px;
+    height: 50px;
+    align-items: center;
+    background-color: yellow;
+    color: black;
+    justify-content: center;
+}
+.button1 {
+    margin-top: 30px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    height: 20px;
+    margin-top: 13px;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+}
